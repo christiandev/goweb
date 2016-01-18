@@ -1,4 +1,4 @@
-# goweb
+# PPC
 **Providers price comparison**
 
 O desafio consiste em construir e colocar no ar uma aplicação web que possibilite comparar preços de servidores em nuvem, de configuração similares. A configuração, preço e provedores podem ou não ser fictícios.
