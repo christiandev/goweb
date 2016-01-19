@@ -6,46 +6,41 @@
 {% include '_header.html' %}
 <!-- Portfolio Grid Section -->
 <section id="produtos">
-        <div>
-            <label>Name:</label>
-            <input type="text" ng-model="yourName" placeholder="Enter a name here">
-            <hr>
-            {% verbatim %}
-            <h1>Hello {{ yourName }} !</h1>
-            {% endverbatim %}
-        </div>
-
     <div class="container">
         <div class="row">
-            {% for produto in produtos %}
-            <div class="col-sm-3 col-lg-3 col-md-3">
-                <div class="thumbnail">
-                    {{ produto.provedor.imagem|safe }}
-                    <div class="caption">
-                        <h4 class="pull-right">${{ produto.preco }}</h4>
-                        <h5><a href="#">{{ produto }}</a></h5>
-                        <ul class="list-group">
-                          <li class="list-group-item text-warning">CPU<span class="label label-warning pull-right">{{ produto.cpu }}</span></li>
-                          <li class="list-group-item text-info">Memória<span class="label label-info pull-right">{{ produto.memoria.to_gb }}</span></li>
-                          <li class="list-group-item text-primary">Disco<span class="label label-primary pull-right">{{ produto.armazenamento }}</span></li>
-                        </ul>
-                    </div>
-                    <div class="caption">
-                        <div class="form-group">
-                            <label for="idDisco">Sistema</label>
-                            <select class="form-control" id="idDisco">
-                                <option>---</option>
-                                {% for sistema in produto.sistemas.all %}
-                                <option value="{{ sistema.id }}">{{ sistema }}</option>
-                                {% endfor %}
-                            </select>
+            {% if produtos %}
+                {% for produto in produtos %}
+                <div class="col-sm-3 col-lg-3 col-md-3">
+                    <div class="thumbnail">
+                        {{ produto.provedor.imagem|safe }}
+                        <div class="caption">
+                            <h4 class="pull-right">${{ produto.preco }}</h4>
+                            <h5><a href="#">{{ produto }}</a></h5>
+                            <ul class="list-group">
+                              <li class="list-group-item text-warning">CPU<span class="label label-warning pull-right">{{ produto.cpu }}</span></li>
+                              <li class="list-group-item text-info">Memória<span class="label label-info pull-right">{{ produto.memoria.to_gb }}</span></li>
+                              <li class="list-group-item text-primary">Disco<span class="label label-primary pull-right">{{ produto.armazenamento }}</span></li>
+                            </ul>
                         </div>
-                        <button class="btn btn-success pull-right">Comprar</button>
-                    <div class="clearfix"></div>
+                        <div class="caption">
+                            <div class="form-group">
+                                <label for="idDisco">Sistema</label>
+                                <select class="form-control" id="idDisco">
+                                    <option>---</option>
+                                    {% for sistema in produto.sistemas.all %}
+                                    <option value="{{ sistema.id }}">{{ sistema }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <a href="{{ produto.get_api_url }}" class="btn btn-success pull-right">Produto Instance</a>
+                        <div class="clearfix"></div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            {% endfor %}
+                {% endfor %}
+            {% else %}
+                <h3>Nenhum produto encontrado</h3>
+            {% endif %}
         </div>
     </div>
 </section>

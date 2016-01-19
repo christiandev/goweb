@@ -4,23 +4,24 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="intro-text">
-                    <form class="text-left">
+                    <form class="text-left" action="{% url 'website:index' %}#produtos" method="post">
+                    {% csrf_token %}
                         <div class="form-group col-sm-12">
                             <label for="idPreco">Provedores</label><br>
                             {% for provedor in provedores %}
                                 <label class="checkbox-inline">
-                                  <input type="checkbox" value="{{ provedor.id }}"> {{ provedor }}
+                                  <input type="checkbox" name="provedor" value="{{ provedor.id }}"> {{ provedor }}
                                 </label>
                             {% endfor %}
                         </div>
                         <div class="form-group col-sm-3">
                             <label for="idPreco">Preço</label>
-                            <input type="number" class="form-control" id="idPreco" placeholder="Preço">
+                            <input type="number" step="any" class="form-control" id="idPreco" name="preco" placeholder="Preço">
                         </div>
                         <div class="form-group col-sm-2">
                             <label for="idCPU">CPU</label>
-                            <select class="form-control" id="idCPU">
-                                <option>---</option>
+                            <select class="form-control" id="idCPU" name="cpu">
+                                <option value="">---</option>
                                 {% for cpu in cpus %}
                                 <option value="{{ cpu.id }}">{{ cpu }}</option>
                                 {% endfor %}
@@ -28,8 +29,8 @@
                         </div>
                         <div class="form-group col-sm-2">
                             <label for="idMemoria">Memória</label>
-                            <select class="form-control" id="idMemoria">
-                                <option>---</option>
+                            <select class="form-control" id="idMemoria" name="memoria">
+                                <option value="">---</option>
                                 {% for memoria in memorias %}
                                 <option value="{{ memoria.id }}">{{ memoria }}</option>
                                 {% endfor %}
@@ -37,8 +38,8 @@
                         </div>
                         <div class="form-group col-sm-2">
                             <label for="idDisco">Disco</label>
-                            <select class="form-control" id="idDisco">
-                                <option>---</option>
+                            <select class="form-control" id="idDisco" name="armazenamento">
+                                <option value="">---</option>
                                 {% for armazenamento in armazenamentos %}
                                 <option value="{{ armazenamento.id }}">{{ armazenamento }}</option>
                                 {% endfor %}
@@ -46,8 +47,8 @@
                         </div>
                         <div class="form-group col-sm-3">
                             <label for="idSistema">Sistema</label>
-                            <select class="form-control" id="idsistema">
-                                <option>---</option>
+                            <select class="form-control" id="idsistema" name="sistema">
+                                <option value="">---</option>
                                 {% for sistema in sistemas %}
                                 <option value="{{ sistema.id }}">{{ sistema }}</option>
                                 {% endfor %}

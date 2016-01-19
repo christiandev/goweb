@@ -97,8 +97,8 @@ class Produto(models.Model):
     provedor = models.ForeignKey(
         to=Provedor
     )
-    preco = models.DecimalField(
-        verbose_name=u"Preço", max_digits=5, decimal_places=2
+    preco = models.FloatField(
+        verbose_name=u"Preço"
     )
     cpu = models.ForeignKey(
         verbose_name="CPU", to=CPU
@@ -115,6 +115,11 @@ class Produto(models.Model):
 
     def __unicode__(self):
         return self.nome
+
+    @property
+    def get_api_url(self):
+        return '/api/v1/produtos/{0}/'.format(self.id)
+
 
     class Meta:
         verbose_name_plural = "Produtos"
