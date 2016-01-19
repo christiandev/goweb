@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
 from sorl.thumbnail.admin import AdminImageMixin
+
 from .models import CPU, Provedor, Sistema, Armazenamento, Memoria, Produto
-from sorl.thumbnail.admin import AdminImageMixin
 
 
 @admin.register(CPU)
