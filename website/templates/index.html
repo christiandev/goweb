@@ -15,7 +15,7 @@
                         {{ produto.provedor.imagem|safe }}
                         <div class="caption">
                             <h4 class="pull-right">${{ produto.preco }}</h4>
-                            <h5><a href="#">{{ produto }}</a></h5>
+                            <h5><a href="{{ produto.get_api_url }}" target="_blank">{{ produto }}</a></h5>
                             <ul class="list-group">
                               <li class="list-group-item text-warning">CPU<span class="label label-warning pull-right">{{ produto.cpu }}</span></li>
                               <li class="list-group-item text-info">Memória<span class="label label-info pull-right">{{ produto.memoria.to_gb }}</span></li>
@@ -32,7 +32,7 @@
                                     {% endfor %}
                                 </select>
                             </div>
-                            <a href="{{ produto.get_api_url }}" class="btn btn-success pull-right">Produto Instance</a>
+                            <a href="{{ produto.get_api_url }}" target="_blank" class="btn btn-success pull-right">Produto Instance</a>
                         <div class="clearfix"></div>
                         </div>
                     </div>
