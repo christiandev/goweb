@@ -78,7 +78,7 @@ class Provedor(models.Model):
 
     def imagem(self):
         if self.logo:
-            return u'<img src="%s" />' % get_thumbnail(self.logo, "100", crop='center', quality=95).url
+            return u'<img src="%s" />' % get_thumbnail(self.logo, "161x50", quality=95).url
         return ''
 
     class Meta:
@@ -115,3 +115,7 @@ class Produto(models.Model):
 
     def __unicode__(self):
         return self.nome
+
+    class Meta:
+        verbose_name_plural = "Produtos"
+        ordering = ['preco', 'provedor']
