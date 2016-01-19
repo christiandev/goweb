@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # apps
+    'django_extensions',
+    'sorl.thumbnail',
     'rest_framework',
     'website'
 ]
@@ -119,7 +122,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 LANGUAGE_CODE = 'pt-BR'
 TIME_ZONE = 'America/Sao_Paulo'
-USE_I18N = False
+USE_I18N = True
 USE_L10N = False
 USE_TZ = True
 
