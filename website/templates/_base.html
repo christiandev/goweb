@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app>
 
 <head>
     <meta charset="utf-8">
@@ -10,6 +10,20 @@
     <title>Freelancer - Start Bootstrap Theme</title>
     <!-- css files -->
     {% include '_css_files.html' %}
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script>
+      var customInterpolationApp = angular.module('customInterpolationApp', []);
+
+      customInterpolationApp.config(function($interpolateProvider) {
+        $interpolateProvider.startSymbol('[[');
+        $interpolateProvider.endSymbol(']]');
+      });
+
+      customInterpolationApp.controller('DemoController', function() {
+          this.label = "This binding is brought you by // interpolation symbols.";
+      });
+    </script>
+
 </head>
 
 <body id="page-top" class="index">

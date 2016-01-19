@@ -1,9 +1,18 @@
+{% load thumbnail %}
 <header>
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="intro-text">
                     <form class="text-left">
+                        <div class="form-group col-sm-12">
+                            <label for="idPreco">Provedores</label><br>
+                            {% for provedor in provedores %}
+                                <label class="checkbox-inline">
+                                  <input type="checkbox" value="{{ provedor.id }}"> {{ provedor }}
+                                </label>
+                            {% endfor %}
+                        </div>
                         <div class="form-group col-sm-3">
                             <label for="idPreco">Preço</label>
                             <input type="number" class="form-control" id="idPreco" placeholder="Preço">
@@ -11,41 +20,37 @@
                         <div class="form-group col-sm-2">
                             <label for="idCPU">CPU</label>
                             <select class="form-control" id="idCPU">
-                              <option>1</option>
-                              <option>2</option>
-                              <option>3</option>
-                              <option>4</option>
-                              <option>5</option>
+                                <option>---</option>
+                                {% for cpu in cpus %}
+                                <option value="{{ cpu.id }}">{{ cpu }}</option>
+                                {% endfor %}
                             </select>
                         </div>
                         <div class="form-group col-sm-2">
                             <label for="idMemoria">Memória</label>
                             <select class="form-control" id="idMemoria">
-                              <option>1</option>
-                              <option>2</option>
-                              <option>3</option>
-                              <option>4</option>
-                              <option>5</option>
+                                <option>---</option>
+                                {% for memoria in memorias %}
+                                <option value="{{ memoria.id }}">{{ memoria }}</option>
+                                {% endfor %}
                             </select>
                         </div>
                         <div class="form-group col-sm-2">
                             <label for="idDisco">Disco</label>
                             <select class="form-control" id="idDisco">
-                              <option>1</option>
-                              <option>2</option>
-                              <option>3</option>
-                              <option>4</option>
-                              <option>5</option>
+                                <option>---</option>
+                                {% for armazenamento in armazenamentos %}
+                                <option value="{{ armazenamento.id }}">{{ armazenamento }}</option>
+                                {% endfor %}
                             </select>
                         </div>
                         <div class="form-group col-sm-3">
                             <label for="idSistema">Sistema</label>
                             <select class="form-control" id="idsistema">
-                              <option>1</option>
-                              <option>2</option>
-                              <option>3</option>
-                              <option>4</option>
-                              <option>5</option>
+                                <option>---</option>
+                                {% for sistema in sistemas %}
+                                <option value="{{ sistema.id }}">{{ sistema }}</option>
+                                {% endfor %}
                             </select>
                         </div>
                         <div class="form-group col-sm-12">

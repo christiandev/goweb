@@ -104,7 +104,7 @@ class Produto(models.Model):
         verbose_name="CPU", to=CPU
     )
     memoria = models.ForeignKey(
-        verbose_name=u"Memória", to=Memoria
+        verbose_name=u"Memória", to=Memoria, related_name='memorias'
     )
     armazenamento = models.ForeignKey(
         to=Armazenamento
